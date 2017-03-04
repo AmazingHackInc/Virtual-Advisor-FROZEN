@@ -59,4 +59,5 @@ $(function () {
         }
     });
     cy.zoomingEnabled( false );
+    cy.panningEnabled( false );
 });
