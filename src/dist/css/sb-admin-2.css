@@ -255,9 +255,9 @@ table.dataTable thead .sorting:after {
   border-color: #d9534f;
 }
 .panel-red > .panel-heading {
-  border-color: #d9534f;
+  border-color: #962135;
   color: white;
-  background-color: #d9534f;
+  background-color: #962135;
 }
 .panel-red > a {
   color: #d9534f;
