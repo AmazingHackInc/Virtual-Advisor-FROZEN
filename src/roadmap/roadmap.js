@@ -58,4 +58,5 @@ $(function () {
             edges: data.edges
         }
     });
+    cy.zoomingEnabled( false );
 });
