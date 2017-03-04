@@ -305,8 +305,179 @@
     <div id="page-wrapper">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">Blank</h1>
+                <br class="col-lg-12">
+                    <h1 class="page-header">Cyber Secuity Undergraduate Certificate</h1>
+                    <!DOCTYPE html>
+                    <br>
+                    <head>
+                        <style>
+                            .dropbtn {
+                                background-color: #962135;
+                                color: white;
+                                padding: 16px;
+                                font-size: 16px;
+                                border: none;
+                                cursor: pointer;
+                            }
+
+                            .dropbtn:hover, .dropbtn:focus {
+                                background-color: #962135;
+                            }
+
+                            .dropdown {
+                                position: relative;
+                                display: inline-block;
+                            }
+
+                            .dropdown-content {
+                                display: none;
+                                position: absolute;
+                                background-color: #f9f9f9;
+                                min-width: 160px;
+                                overflow: auto;
+                                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                                z-index: 1;
+                            }
+
+                            .dropdown-content a {
+                                color: black;
+                                padding: 12px 16px;
+                                text-decoration: none;
+                                display: block;
+                            }
+
+                            .dropdown a:hover {background-color: #f1f1f1}
+
+                            .show {display:block;}
+                        </style>
+                    </head>
+                    <h2>Required:</h2>
+                    <p>Click on the button to read the description.</p>
+
+                    <div class="dropdown">
+                        <button onclick="myFunction()" class="dropbtn">
+                            INFSYS 3848	Introduction to Information Security
+                        </button>
+                        <div id="myDropdown" class="dropdown-content">
+                            <p>Prerequisites: A minimum campus GPA of 2.0 and INFSYS 2800 or
+                                permission of instructor. An introductory survey of the vast field of
+                                Information Security (InfoSec). Intersects both management and technical
+                                aspects of security as relevant to organizations, governments, individuals,
+                                and society. Topics include fundamental principles of InfoSec, the threat
+                                environment, management of InfoSec in organizations, technologies and
+                                tools in InfoSec, cryptology/cryptography, web application security, and
+                                current issues. Hands-on labs expose students to basics of penetration
+                                testing and ethical hacking. A group project is required. Course is open to
+                                all majors.<br><br>
+                                <a class="btn btn-success center-block" style="width:80%;"href="#home">REGISTER</a>
+                            </p>
+                        </div>
+                    </div>
+
+
+                <br></br><br></br>
+
+                <div class="dropdown2">
+                    <button onclick="myFunction2()" class="dropbtn">
+                        CMP SCI 4730	Computer Networks and Communications
+                    </button>
+                    <div id="myDropdown2" class="dropdown-content">
+                        <p>Prerequisites: CMP SCI 2750 and MATH 1320; or graduate standing. This course provides a broad overview of computer networks and communications. Covers the fundamental principles and protocols across the whole layering structure of the Internet protocol stack. A top-down approach covers multiple topics including network application layer, transport layer, network layer, link layer, and physical layer protocols. May also include a range of related technologies such as WWW, HTTP, FTP, DNS, SMTP, TCP, UDP, ICMP, IPv4, IPv6, OSPF, RIP, BGP, IEEE 802.11 (WiFi), cellular networks, LANs, Ethernet, CSMA/CD, CDMA, multimedia networking, network management, and security in Internet.<br><br>
+                            <a class="btn btn-success center-block" style="width:80%;"href="#home">REGISTER</a>
+                        </p>
+                    </div>
+                </div>
+
+
+
+
+                    <p>
+                        <style> text-decoration: black; </style>
+                            <b>OR</b>
+                    </p>
+
+
+                <div class="dropdown3">
+                    <button onclick="myFunction3()" class="dropbtn">
+                        INFSYS 3842    Data Networks and Security
+                    </button>
+                    <div id="myDropdown3" class="dropdown-content">
+                        <p>
+                            Prerequisites:  INFSYS 1800 and a 2.0 overall GPA. The technical, managerial and security aspects of data networks as they apply to the business environment are discussed. Issues include communications components and services, network architecture, managerial implementations, organizational issues, and cost/benefits analyses.<br><br>
+                            <a class="btn btn-success center-block" style="width:80%;"href="#home">REGISTER</a>
+                        </p>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                    <script>
+                        /* When the user clicks on the button,
+                         toggle between hiding and showing the dropdown content */
+                        function myFunction() {
+                            document.getElementById("myDropdown").classList.toggle("show");
+                        }
+
+                        // Close the dropdown if the user clicks outside of it
+                        window.onclick = function(event) {
+                            if (!event.target.matches('.dropbtn')) {
+
+                                var dropdowns = document.getElementsByClassName("dropdown-content");
+                                var i;
+                                for (i = 0; i < dropdowns.length; i++) {
+                                    var openDropdown = dropdowns[i];
+                                    if (openDropdown.classList.contains('show')) {
+                                        openDropdown.classList.remove('show');
+                                    }
+                                }
+                            }
+                        }
+
+                        function myFunction2() {
+                            document.getElementById("myDropdown2").classList.toggle("show");
+                        }
+
+                        // Close the dropdown if the user clicks outside of it
+                        window.onclick = function(event) {
+                            if (!event.target.matches('.dropbtn')) {
+
+                                var dropdowns = document.getElementsByClassName("dropdown-content");
+                                var i;
+                                for (i = 0; i < dropdowns.length; i++) {
+                                    var openDropdown = dropdowns[i];
+                                    if (openDropdown.classList.contains('show')) {
+                                        openDropdown.classList.remove('show');
+                                    }
+                                }
+                            }
+                        }
+
+                        function myFunction3() {
+                            document.getElementById("myDropdown3").classList.toggle("show");
+                        }
+
+                        // Close the dropdown if the user clicks outside of it
+                        window.onclick = function(event) {
+                            if (!event.target.matches('.dropbtn')) {
+
+                                var dropdowns = document.getElementsByClassName("dropdown-content");
+                                var i;
+                                for (i = 0; i < dropdowns.length; i++) {
+                                    var openDropdown = dropdowns[i];
+                                    if (openDropdown.classList.contains('show')) {
+                                        openDropdown.classList.remove('show');
+                                    }
+                                }
+                            }
+                        }
+
+                    </script>
+
+
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
