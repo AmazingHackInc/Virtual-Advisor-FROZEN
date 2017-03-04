@@ -20,6 +20,7 @@ function getNodes() {
     // return JSON.parse(xhttp.responseText);
 }
 
+//swag
 function getEdges(theNodes) {
     var obj = [];
 
