@@ -48,6 +48,7 @@ $(function () {
         container: document.getElementById('cy'),
         boxSelectionEnabled: true,
         autounselectify: true,
+        wheelSensitivity: 0.2,
 
         layout: {
             name: 'dagre'
