@@ -6,5 +6,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="jquery-2.0.3" level="application" />
+    <orderEntry type="library" name="dagre" level="application" />
+    <orderEntry type="library" name="cytoscape-dagre" level="application" />
   </component>
 </module>
