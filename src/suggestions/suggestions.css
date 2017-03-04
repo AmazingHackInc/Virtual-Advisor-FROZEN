@@ -16,3 +16,7 @@
     color: #fff;
     background-color: #962135;
 }
+
+.panel.panel-default.panel-heading {
+    background-color: #962135;
+}
