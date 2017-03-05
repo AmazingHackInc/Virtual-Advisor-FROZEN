@@ -1891,7 +1891,8 @@ Licensed under the BSD-2-Clause License.
 
 }).call(this);
 
-var c1 = Morris.Donut({
+
+var c1=Morris.Donut({
   element: 'majors-donut-chart',
   data: [
     {label: "Completed", value: 87},
@@ -1903,11 +1904,16 @@ var c1 = Morris.Donut({
     '#ad7c89',
     '#8e8181'
   ]
+
 });
-$('ul.nav a').on('shown.bs.tab', function (e) {
-    c1.redraw();
-});
-Morris.Donut({
+// if($('#morris-donut-chart').length >0){
+//  $ ('ul.nav a').on('shown.bs.tab', function (e) {
+//     c1.redraw();
+//     $('svg').css({width: '100%'});
+// });
+// }
+
+var c2=Morris.Donut({
   element: 'cert-donut-chart',
   data: [
     {label: "Completed", value: 0},
@@ -1919,8 +1925,16 @@ Morris.Donut({
     '#ad7c89',
     '#8e8181'
   ]
+
 });
-Morris.Donut({
+// if($('#morris-donut-chart').length >0){
+//  $ ('ul.nav a').on('shown.bs.tab', function (e) {
+//     c2.redraw();
+//     $('svg').css({width: '100%'});
+// });
+// }
+
+var c3=Morris.Donut({
   element: 'minors-donut-chart',
   data: [
     {label: "Completed", value: 3},
@@ -1932,4 +1946,19 @@ Morris.Donut({
     '#ad7c89',
     '#8e8181'
   ]
+
+});
+// if($('#morris-donut-chart').length >0){
+//  $ ('ul.nav a').on('shown.bs.tab', function (e) {
+//     c3.redraw();
+//     $('svg').css({width: '100%'});
+// });
+// }
+
+$('ul.nav a').on('shown.bs.tab', function (e) {
+    var types = $(this).attr("data-identifier");
+    var typesArray = types.split(",");
+    $.each(typesArray, function (key, value) {
+        eval(value + ".redraw()");
+    })
 });
