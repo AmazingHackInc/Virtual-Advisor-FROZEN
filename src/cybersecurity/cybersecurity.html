@@ -357,9 +357,20 @@
                                                     all majors.</p>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-success" data-dismiss="modal">Add to my
+                                                <!--<button type="button" class="btn btn-success" data-dismiss="modal">Add to my
                                                     Roadmap
-                                                </button>
+                                                </button>-->
+                                                <input id="btntest" class="btn btn-success" type="button" value="Add to my
+                                                    Roadmap"
+                                                       onclick="return btntest_onclick()"
+                                                />
+
+                                                <script language="javascript" type="text/javascript">
+                                                    function btntest_onclick()
+                                                    {
+                                                        window.location.href = "http://www.google.com";
+                                                    }
+                                                </script>
                                             </div>
                                         </div>
 

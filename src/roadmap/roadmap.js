@@ -163,7 +163,7 @@ function getNodes() {
             "type": "CS",
             "required": "true",
             "description": "Prerequisites: CMP SCI 2700, CMP SCI 2750, and CMP SCI 3130; or graduate standing. This course covers the structure of a generic operating system, considering in detail the algorithms for interprocess communication, process scheduling, resource management, memory management, file systems, and device management. It presents examples from contemporary operating systems and requires practical projects implemented within a modern operating system or simulator environment."
-        }
+        },
     }, {
         "data": {
             "creditHours": "3",
@@ -176,9 +176,22 @@ function getNodes() {
             "id": 12,
             "type": "MAT",
             "required": "true",
-            "description": ""
+            "description": "",
         },
-
+    },{
+        "data": {
+            "creditHours": "3",
+            "prerequisites": "[]",
+            "courseName": "Art 1001 Fun with Finger Paint",
+            "courseLevel": "1",
+            "courseNumber": "1001",
+            "studentLevel": "Freshmen",
+            "fullCourseNumber": "ART 1001",
+            "id": 13,
+            "type": "ART",
+            "required": "false",
+            "description": "An introduction to the vast world of art. Students will learn the basics of one of the toughest art forms to master - finger painting. We will spend the first 5 weeks of the course learning the proper hand and finger techniques before we actually put paint on a piece of paper. The final exam will involve painting a snowman.",
+        },
     }, {
         "data": {
             "creditHours": "",
@@ -276,12 +289,19 @@ $(document).ready(function () {
     });
 
     cy.elements().each(function (i, ele) {
-
         if (ele.id() >= 0) {
             if (ele.group() === 'nodes') {
-                ele.addClass(ele.data().type);
-
-                snap(ele);
+                if (ele.id() == 13) {
+                    if (addCustomClass()) {
+                        ele.addClass(ele.data().type);
+                        snap(ele);
+                    }else{
+                        cy.remove(ele);
+                    }
+                }else {
+                    ele.addClass(ele.data().type);
+                    snap(ele);
+                }
             }
         }else{
 
@@ -420,4 +440,26 @@ function checkOverlap() {
             }
         });
     }
+}
+
+function addCustomClass(){
+
+    console.log(findGetParameter('id'));
+    var course = findGetParameter('id');
+    if (course == 'art'){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+function findGetParameter(parameterName) {
+    var result = null,
+        tmp = [];
+    var items = location.search.substr(1).split("&");
+    for (var index = 0; index < items.length; index++) {
+        tmp = items[index].split("=");
+        if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+    }
+    return result;
 }
