@@ -23,8 +23,11 @@
 
     <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="home.css" rel="stylesheet" type="text/css">
 
-    <link href="home.css">
+    <script src="../vendor/morrisjs/morris.min.js"></script>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/raphael/raphael.min.js"></script>
 </head>
 
 
@@ -314,6 +317,23 @@
             <!-- /.row -->
         </div>
         <!-- /.container-fluid -->
+
+        <!--/. Dashboard Content-->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <button type="button" class="btn btn-outline"><a href="#col1Content" style="color:darkred" data-toggle="collapse">Majors</a></button>
+                        <div id="col1Content" class="collapse in">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div id="morris-donut-chart"></div>
+                                    <a href="#" class="btn btn-default btn-block">View details</a>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- /#page-wrapper -->
 
@@ -331,5 +351,10 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="../dist/js/sb-admin-2.js"></script>
+
+<script src="../vendor/morrisjs/morris.js"></script>
+<script src="../vendor/raphael/raphael.min.js"></script>
+<script src="../vendor/morrisjs/morris.min.js"></script>
+<script src="../data/morris-data.js"></script>
 </body>
 </html>
