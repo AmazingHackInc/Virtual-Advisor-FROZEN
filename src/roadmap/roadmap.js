@@ -463,7 +463,21 @@ function getNodes() {
             "type": "ART",
             "required": "false",
             "description": "An introduction to the vast world of art. Students will learn the basics of one of the toughest art forms to master - finger painting. We will spend the first 5 weeks of the course learning the proper hand and finger techniques before we actually put paint on a piece of paper. The final exam will involve painting a snowman.",
-        },
+        }
+    },{
+        "data": {
+            "creditHours": "3",
+            "prerequisites": "[13]",
+            "courseName": "Art 1001 Fun with Finger Paint",
+            "courseLevel": "1",
+            "courseNumber": "1001",
+            "studentLevel": "Freshmen",
+            "fullCourseNumber": "ART 1001",
+            "id": 14,
+            "type": "ART",
+            "required": "false",
+            "description": "An introduction to the vast world of art. Students will learn the basics of one of the toughest art forms to master - finger painting. We will spend the first 5 weeks of the course learning the proper hand and finger techniques before we actually put paint on a piece of paper. The final exam will involve painting a snowman.",
+        }
     }, {
         "data": {
             "creditHours": "",
@@ -579,6 +593,10 @@ $(document).ready(function () {
             .css({
                 'background-color': '#962135'
             })
+            .selector('.ART')
+            .css({
+                'background-color': '#228B22'
+            })
             .selector('.MAT')
             .css({
                 'background-color': 'blue'
@@ -599,28 +617,32 @@ $(document).ready(function () {
     });
 
     cy.elements().each(function (i, ele) {
-        if (ele.id() >= 0) {
-            if (ele.group() === 'nodes') {
-                if (ele.id() == 13) {
-                    if (addCustomClass()) {
+            if (ele.id() >= 0) {
+                if (ele.group() === 'nodes') {
+                    if (ele.id() == 13 || ele.id() == 14) {
+                        if (addCustomClass() === 'art') {
+                            if (ele.id() == 13) {
+                                ele.addClass(ele.data().type);
+                                snap(ele);
+                            } else {
+                                cy.remove(ele)
+                            }
+                        } else if (addCustomClass() === "art2") {
+                            ele.addClass(ele.data().type);
+                            snap(ele);
+                        } else {
+                            cy.remove(ele);
+                        }
+                    } else {
                         ele.addClass(ele.data().type);
                         snap(ele);
-                    } else {
-                        cy.remove(ele);
                     }
-                } else {
-                    ele.addClass(ele.data().type);
-                    snap(ele);
                 }
+            } else {
+                ele.addClass('semester');
             }
-        } else {
-            ele.addClass('semester');
-            // var width = cy.width();
-            // var height = cy.height();
-            // console.log(width);
-            // $('.semester').css("width", 1261);
         }
-    });
+    );
 
     spreadOutSemesterLines();
 
@@ -629,7 +651,7 @@ $(document).ready(function () {
     checkOverlap();
 
     cy.zoom({
-        level:1.8
+        level: 1.8
     });
 
     cy.pan({
@@ -809,11 +831,14 @@ function addCustomClass() {
     console.log(findGetParameter('id'));
     var course = findGetParameter('id');
     if (course == 'art') {
-        return true;
+        return 'art';
+    } else if (course == 'art2') {
+        return 'art2'
     } else {
-        return false;
+        return '';
     }
 }
+
 
 function findGetParameter(parameterName) {
     var result = null,
