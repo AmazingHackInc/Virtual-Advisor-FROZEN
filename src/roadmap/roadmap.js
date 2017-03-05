@@ -1,4 +1,6 @@
 var data = getData();
+var gridWidth = 100;
+
 
 function getData() {
     return {
@@ -16,6 +18,7 @@ function getNodes() {
             "courseLevel": "1",
             "courseNumber": "1250",
             "studentLevel": "Freshmen",
+            "fullCourseNumber": "CS 1250",
             "id": 1,
             "type": "CS",
             "required": "true",
@@ -29,6 +32,7 @@ function getNodes() {
             "courseLevel": "2",
             "courseNumber": "2250",
             "studentLevel": "Sophomore",
+            "fullCourseNumber": "CS 2250",
             "id": 2,
             "type": "CS",
             "required": "true",
@@ -42,6 +46,7 @@ function getNodes() {
             "courseLevel": "2",
             "courseNumber": "2261",
             "studentLevel": "Sophomore",
+            "fullCourseNumber": "CS 2261",
             "id": 3,
             "type": "CS",
             "required": "true",
@@ -55,6 +60,7 @@ function getNodes() {
             "courseLevel": "2",
             "courseNumber": "2700",
             "studentLevel": "Sophomore",
+            "fullCourseNumber": "CS 2700",
             "id": 4,
             "type": "CS",
             "required": "true",
@@ -68,6 +74,7 @@ function getNodes() {
             "courseLevel": "2",
             "courseNumber": "2750",
             "studentLevel": "Sophomore",
+            "fullCourseNumber": "CS 2750",
             "id": 5,
             "type": "CS",
             "required": "true",
@@ -81,6 +88,7 @@ function getNodes() {
             "courseLevel": "3",
             "courseNumber": "3010",
             "studentLevel": "Junior",
+            "fullCourseNumber": "CS 3010",
             "id": 6,
             "type": "CS",
             "required": "true",
@@ -94,6 +102,7 @@ function getNodes() {
             "courseLevel": "3",
             "courseNumber": "3130",
             "studentLevel": "Junior",
+            "fullCourseNumber": "CS 3130",
             "id": 7,
             "type": "CS",
             "required": "true",
@@ -107,6 +116,7 @@ function getNodes() {
             "courseLevel": "4",
             "courseNumber": "4250",
             "studentLevel": "Senior",
+            "fullCourseNumber": "CS 4250",
             "id": 8,
             "type": "CS",
             "required": "true",
@@ -120,6 +130,7 @@ function getNodes() {
             "courseLevel": "4",
             "courseNumber": "4280",
             "studentLevel": "Senior",
+            "fullCourseNumber": "CS 4280",
             "id": 9,
             "type": "CS",
             "required": "true",
@@ -133,6 +144,7 @@ function getNodes() {
             "courseLevel": "4",
             "courseNumber": "4500",
             "studentLevel": "Senior",
+            "fullCourseNumber": "CS 4500",
             "id": 10,
             "type": "CS",
             "required": "true",
@@ -146,6 +158,7 @@ function getNodes() {
             "courseLevel": "4",
             "courseNumber": "4760",
             "studentLevel": "Senior",
+            "fullCourseNumber": "CS 4760",
             "id": 11,
             "type": "CS",
             "required": "true",
@@ -159,13 +172,13 @@ function getNodes() {
             "courseLevel": "1",
             "courseNumber": "1030",
             "studentLevel": "Freshmen",
+            "fullCourseNumber": "MAT 1030",
             "id": 12,
             "type": "MAT",
             "required": "true",
             "description": ""
         }
-    }];
-
+    }]
 
     // var xhttp = new XMLHttpRequest();
     // xhttp.open("POST", "http://localhost:8080/computer-science/", false);
@@ -184,11 +197,9 @@ function getEdges(theNodes) {
         for (var i in req) {
             var o = {"data": {source: req[i], target: data.id}};
             obj.push(o);
-            console.log(req[i]);
         }
     }
 
-    console.log("\n\n\n");
     return obj;
 }
 
@@ -201,7 +212,7 @@ $(document).ready(function () {
         style: cytoscape.stylesheet()
             .selector('node')
             .css({
-                "content": "data(courseName)",
+                "content": "data(fullCourseNumber)",
             })
             .selector('edge')
             .css({
@@ -235,8 +246,11 @@ $(document).ready(function () {
     });
 
     cy.elements().each(function (i, ele) {
+
         if (ele.group() === 'nodes') {
             ele.addClass(ele.data().type);
+
+            reposition(ele);
         }
     });
 
@@ -253,24 +267,94 @@ $(document).ready(function () {
         }
     });
 
+    var oldPosX;
+    var oldPosY;
+    var newPosX;
+    var newPosY;
+    var selectedNodeId;
+    var parents;
+    var children;
+
     cy.on('grab', function (event) {
         var node = event.cyTarget;
-        var nodePosition = node.position();
+        oldPosX = node.position().x;
+        oldPosY = node.position().y;
+
+        selectedNodeId = node.id();
+
+        parents = getParents(selectedNodeId);
+        children = getChildren(selectedNodeId);
     });
 
     cy.on('free', function (event) {
         var node = event.cyTarget;
-        var nodePosition = node.position();
+        newPosY = node.position().y;
+        newPosX = node.position().x;
 
-        if (nodePosition.y < 0) {
-
+        if (newPosX < oldPosX) {
+            console.log("moving left");
+        } else {
+            console.log("moving right");
         }
+
+        if (newPosY < oldPosY) {
+            console.log("moving up");
+        } else {
+            console.log("moving down");
+        }
+
+        reposition(node);
+        console.log(node.position().y);
+
+        parents.forEach(function (parentId) {
+            var parent = cy.getElementById(parentId);
+
+            if (newPosY >= parent.position().y) {
+                console.log("Breaking requisite ladder! This node is going beyond a prerequisite! Undoing!");
+                node.position('y', oldPosY);
+            } else {
+            }
+        });
+
+        children.forEach(function (childId) {
+            var child = cy.getElementById(childId);
+
+            if (newPosY <= child.position().y) {
+                console.log("Breaking requisite ladder! This node is forcing another node beyond a prerequisite! Undoing!");
+                node.position('y', oldPosY);
+            } else {
+            }
+        });
     });
 });
 
-function getCoords() {
+function getParents(of) {
+    var parents = [];
+
     cy.elements().each(function (i, ele) {
-        if (i === 0)
-            console.log(ele.position());
+        if (ele.group() === "edges" && ele.source().id() === of) {
+            parents.push(ele.target().id());
+        }
+
     });
+
+    return parents;
+}
+
+function getChildren(of) {
+    var children = [];
+
+    cy.elements().each(function (i, ele) {
+        if (ele.group() === "edges" && ele.target().id() === of) {
+            children.push(ele.source().id());
+        }
+
+    });
+
+    return children;
+}
+
+function reposition(ele) {
+    ele.position('x', gridWidth * Math.floor((ele.position().x + gridWidth / 2) / gridWidth));
+    ele.position('y', gridWidth * Math.floor((ele.position().y + gridWidth / 2) / gridWidth));
 }
