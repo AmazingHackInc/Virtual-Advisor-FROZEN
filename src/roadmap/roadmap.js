@@ -177,8 +177,26 @@ function getNodes() {
             "type": "MAT",
             "required": "true",
             "description": ""
-        }
-    }]
+        },
+
+    }, {
+        "data": {
+            "creditHours": "",
+            "prerequisites": "[]",
+            "courseName": "",
+            "courseLevel": "",
+            "courseNumber": "",
+            "studentLevel": "",
+            "fullCourseNumber": "",
+            "id": -1,
+            "type": "",
+            "required": "false",
+            "description": ""
+        },
+        "selectable": false,
+        "grabbable": false,
+        "locked": true
+    }];
 
     // var xhttp = new XMLHttpRequest();
     // xhttp.open("POST", "http://localhost:8080/computer-science/", false);
@@ -207,6 +225,7 @@ var cy;
 
 $(document).ready(function () {
     cy = cytoscape({
+
         container: $('#cy'),
         elements: data,
         style: cytoscape.stylesheet()
@@ -217,6 +236,12 @@ $(document).ready(function () {
                 'color': 'white',
                 'text-outline-width': 2,
                 'text-outline-color': '#888'
+            })
+            .selector('.semester')
+            .css({
+                "content": "",
+                'text-valign': 'center',
+                'shape': 'rectangle',
             })
             .selector('edge')
             .css({
@@ -251,10 +276,20 @@ $(document).ready(function () {
     });
 
     cy.elements().each(function (i, ele) {
-        if (ele.group() === 'nodes') {
-            ele.addClass(ele.data().type);
 
-            snap(ele);
+        if (ele.id() >= 0) {
+            if (ele.group() === 'nodes') {
+                ele.addClass(ele.data().type);
+
+                snap(ele);
+            }
+        }else{
+
+            ele.addClass('semester');
+            var width = cy.width();
+            var height = cy.height();
+            console.log(width);
+            $('.semester').css("width", 1261);
         }
     });
 
