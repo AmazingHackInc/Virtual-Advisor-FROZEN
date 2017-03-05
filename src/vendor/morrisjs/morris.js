@@ -1903,7 +1903,10 @@ var c1=Morris.Donut({
     '#962135',
     '#ad7c89',
     '#8e8181'
-  ]
+  ],
+    formatter: function(y){
+    return y + " credits"
+  }
 
 });
 // if($('#morris-donut-chart').length >0){
@@ -1924,7 +1927,10 @@ var c2=Morris.Donut({
     '#962135',
     '#ad7c89',
     '#8e8181'
-  ]
+  ],
+    formatter: function(y){
+    return y + " credits"
+  }
 
 });
 // if($('#morris-donut-chart').length >0){
@@ -1945,7 +1951,10 @@ var c3=Morris.Donut({
     '#962135',
     '#ad7c89',
     '#8e8181'
-  ]
+  ],
+  formatter: function(y){
+    return y + " credits"
+  }
 
 });
 // if($('#morris-donut-chart').length >0){
@@ -1955,10 +1964,10 @@ var c3=Morris.Donut({
 // });
 // }
 
-$('ul.nav a').on('shown.bs.tab', function (e) {
-    var types = $(this).attr("data-identifier");
-    var typesArray = types.split(",");
-    $.each(typesArray, function (key, value) {
-        eval(value + ".redraw()");
-    })
-});
+// $('ul.nav a').on('shown.bs.tab', function (e) {
+//     var types = $(this).attr("data-identifier");
+//     var typesArray = types.split(",");
+//     $.each(typesArray, function (key, value) {
+//         eval(value + ".redraw()");
+//     })
+// });
