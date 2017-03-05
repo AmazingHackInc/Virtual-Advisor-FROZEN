@@ -450,7 +450,7 @@ function getNodes() {
             "required": "true",
             "description": ""
         }
-    },{
+    }, {
         "data": {
             "creditHours": "3",
             "prerequisites": "[]",
@@ -605,10 +605,10 @@ $(document).ready(function () {
                     if (addCustomClass()) {
                         ele.addClass(ele.data().type);
                         snap(ele);
-                    }else{
+                    } else {
                         cy.remove(ele);
                     }
-                }else {
+                } else {
                     ele.addClass(ele.data().type);
                     snap(ele);
                 }
@@ -627,6 +627,15 @@ $(document).ready(function () {
     checkIntegrity();
 
     checkOverlap();
+
+    cy.zoom({
+        level:1.8
+    });
+
+    cy.pan({
+        x: 500,
+        y: 100
+    });
 
     cy.on('tap', function (event) {
         var evtTarget = event.cyTarget;
@@ -795,13 +804,13 @@ function checkIntegrity() {
     }
 }
 
-function addCustomClass(){
+function addCustomClass() {
 
     console.log(findGetParameter('id'));
     var course = findGetParameter('id');
-    if (course == 'art'){
+    if (course == 'art') {
         return true;
-    }else{
+    } else {
         return false;
     }
 }
