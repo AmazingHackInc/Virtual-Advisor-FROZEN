@@ -16,6 +16,7 @@ function getNodes() {
             "courseNumber": "1250",
             "studentLevel": "Freshmen",
             "id": 1,
+            "type": "CS",
             "required": "true"
         }
     }, {
@@ -26,6 +27,7 @@ function getNodes() {
             "courseNumber": "2250",
             "studentLevel": "Sophomore",
             "id": 2,
+            "type": "CS",
             "required": "true"
         }
     }, {
@@ -36,6 +38,7 @@ function getNodes() {
             "courseNumber": "2261",
             "studentLevel": "Sophomore",
             "id": 3,
+            "type": "CS",
             "required": "true"
         }
     }, {
@@ -46,6 +49,7 @@ function getNodes() {
             "courseNumber": "2700",
             "studentLevel": "Sophomore",
             "id": 4,
+            "type": "CS",
             "required": "true"
         }
     }, {
@@ -56,6 +60,7 @@ function getNodes() {
             "courseNumber": "2750",
             "studentLevel": "Sophomore",
             "id": 5,
+            "type": "CS",
             "required": "true"
         }
     }, {
@@ -66,6 +71,7 @@ function getNodes() {
             "courseNumber": "3010",
             "studentLevel": "Junior",
             "id": 6,
+            "type": "CS",
             "required": "true"
         }
     }, {
@@ -76,6 +82,7 @@ function getNodes() {
             "courseNumber": "3130",
             "studentLevel": "Junior",
             "id": 7,
+            "type": "CS",
             "required": "true"
         }
     }, {
@@ -86,6 +93,7 @@ function getNodes() {
             "courseNumber": "4250",
             "studentLevel": "Senior",
             "id": 8,
+            "type": "CS",
             "required": "true"
         }
     }, {
@@ -96,6 +104,7 @@ function getNodes() {
             "courseNumber": "4280",
             "studentLevel": "Senior",
             "id": 9,
+            "type": "CS",
             "required": "true"
         }
     }, {
@@ -106,9 +115,33 @@ function getNodes() {
             "courseNumber": "4500",
             "studentLevel": "Senior",
             "id": 10,
+            "type": "CS",
             "required": "true"
         }
-    }, {"data": {"prerequisites": "[5, 7]", "courseName": "Operating Systems", "courseLevel": "4", "courseNumber": "4760", "studentLevel": "Senior", "id": 11, "required": "true"}}];
+    }, {
+        "data": {
+            "prerequisites": "[5, 7]",
+            "courseName": "Operating Systems",
+            "courseLevel": "4",
+            "courseNumber": "4760",
+            "studentLevel": "Senior",
+            "id": 11,
+            "type": "CS",
+            "required": "true"
+        }
+    }, {
+        "data": {
+            "prerequisites": "[]",
+            "courseName": "Generic Math Course",
+            "courseLevel": "1",
+            "courseNumber": "1030",
+            "studentLevel": "Freshmen",
+            "id": 12,
+            "type": "MAT",
+            "required": "true"
+        }
+    }];
+
 
     // var xhttp = new XMLHttpRequest();
     // xhttp.open("POST", "http://localhost:8080/computer-science/", false);
@@ -156,6 +189,14 @@ $(document).ready(function () {
                 'opacity': 0.8,
                 "curve-style": "bezier"
             })
+            .selector('.CS')
+            .css({
+                'background-color': 'green'
+            })
+            .selector('.MAT')
+            .css({
+                'background-color': 'blue'
+            })
             .selector(':selected')
             .css({
                 'background-color': 'black',
@@ -166,6 +207,11 @@ $(document).ready(function () {
             }),
         layout: {
             name: 'dagre'
-        }
+        },
+        wheelSensitivity: 0.2
+    });
+
+    cy.elements().each(function (i, ele) {
+        ele.addClass(ele.data().type);
     });
 });
