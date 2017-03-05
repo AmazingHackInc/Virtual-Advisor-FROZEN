@@ -1,5 +1,5 @@
 var data = getData();
-var gridWidth = 100;
+var snapWidth = 100;
 
 
 function getData() {
@@ -177,8 +177,26 @@ function getNodes() {
             "type": "MAT",
             "required": "true",
             "description": ""
-        }
-    }]
+        },
+
+    }, {
+        "data": {
+            "creditHours": "",
+            "prerequisites": "[]",
+            "courseName": "",
+            "courseLevel": "",
+            "courseNumber": "",
+            "studentLevel": "",
+            "fullCourseNumber": "",
+            "id": -1,
+            "type": "",
+            "required": "false",
+            "description": ""
+        },
+        "selectable": false,
+        "grabbable": false,
+        "locked": true
+    }];
 
     // var xhttp = new XMLHttpRequest();
     // xhttp.open("POST", "http://localhost:8080/computer-science/", false);
@@ -207,6 +225,7 @@ var cy;
 
 $(document).ready(function () {
     cy = cytoscape({
+
         container: $('#cy'),
         elements: data,
         style: cytoscape.stylesheet()
@@ -217,6 +236,12 @@ $(document).ready(function () {
                 'color': 'white',
                 'text-outline-width': 2,
                 'text-outline-color': '#888'
+            })
+            .selector('.semester')
+            .css({
+                "content": "",
+                'text-valign': 'center',
+                'shape': 'rectangle',
             })
             .selector('edge')
             .css({
@@ -252,12 +277,23 @@ $(document).ready(function () {
 
     cy.elements().each(function (i, ele) {
 
-        if (ele.group() === 'nodes') {
-            ele.addClass(ele.data().type);
+        if (ele.id() >= 0) {
+            if (ele.group() === 'nodes') {
+                ele.addClass(ele.data().type);
 
-            reposition(ele);
+                snap(ele);
+            }
+        }else{
+
+            ele.addClass('semester');
+            var width = cy.width();
+            var height = cy.height();
+            console.log(width);
+            $('.semester').css("width", 1261);
         }
     });
+
+    checkOverlap();
 
     cy.on('tap', function (event) {
         var evtTarget = event.cyTarget;
@@ -308,18 +344,13 @@ $(document).ready(function () {
             console.log("moving down");
         }
 
-        reposition(node);
-        console.log(node.position().y);
+        snap(node);
 
         parents.forEach(function (parentId) {
             var parent = cy.getElementById(parentId);
 
-            console.log(parent.position().y);
-
-            console.log(node.position().y === parent.position().y);
             if (node.position().y >= parent.position().y) {
                 console.log("Breaking requisite ladder! This node is going beyond a prerequisite! Undoing!");
-                console.log("o" + oldPosY);
                 node.position('y', oldPosY);
             } else {
             }
@@ -334,6 +365,8 @@ $(document).ready(function () {
             } else {
             }
         });
+
+        checkOverlap();
     });
 });
 
@@ -363,7 +396,28 @@ function getChildren(of) {
     return children;
 }
 
-function reposition(ele) {
-    ele.position('x', gridWidth * Math.floor((ele.position().x + gridWidth / 2) / gridWidth));
-    ele.position('y', gridWidth * Math.floor((ele.position().y + gridWidth / 2) / gridWidth));
+function snap(ele) {
+    ele.position('x', snapWidth * Math.floor((ele.position().x + snapWidth / 2) / snapWidth));
+    ele.position('y', snapWidth * Math.floor((ele.position().y + snapWidth / 2) / snapWidth));
+}
+
+function checkOverlap() {
+    var wasAnOverlap = true;
+    while (wasAnOverlap) {
+        wasAnOverlap = false;
+        cy.elements().each(function (i, ele1) {
+            if (ele1.group() === 'nodes') {
+                cy.elements().each(function (j, ele2) {
+                    if (j > i) {
+                        if (ele2.group() === 'nodes') {
+                            if (ele1.position().x === ele2.position().x && ele1.position().y === ele2.position().y) {
+                                wasAnOverlap = true;
+                                ele1.position('x', ele1.position().x + snapWidth);
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    }
 }
