@@ -241,7 +241,8 @@ $(document).ready(function () {
                 'line-color': 'black',
                 'target-arrow-color': 'black',
                 'source-arrow-color': 'black',
-                'opacity': 1
+                'opacity': 1,
+                'content': 'data(courseName)'
             }),
         layout: {
             name: 'dagre'
