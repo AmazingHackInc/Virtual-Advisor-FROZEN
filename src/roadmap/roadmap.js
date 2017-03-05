@@ -593,6 +593,10 @@ $(document).ready(function () {
             .css({
                 'background-color': '#962135'
             })
+            .selector('.ART')
+            .css({
+                'background-color': '#228B22'
+            })
             .selector('.MAT')
             .css({
                 'background-color': 'blue'
