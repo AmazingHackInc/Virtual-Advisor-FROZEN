@@ -40,3 +40,7 @@ b {
 .container-fluid {
     padding: 0 !important;
 }
+
+.fa {
+    color: #962135;
+}
