@@ -1,5 +1,5 @@
 var data = getData();
-var snapWidth = 100;
+var snapSize = 100;
 
 
 function getData() {
@@ -11,6 +11,278 @@ function getData() {
 
 function getNodes() {
     return [{
+        "data": {
+            "creditHours": "",
+            "prerequisites": "[]",
+            "courseName": "",
+            "courseLevel": "",
+            "courseNumber": "",
+            "studentLevel": "",
+            "fullCourseNumber": "",
+            "id": -1,
+            "type": "",
+            "required": "false",
+            "description": ""
+        },
+        'selectable': false,
+        'grabbable': false,
+        'classes': 'left'
+    }, {
+        "data": {
+            "creditHours": "",
+            "prerequisites": "[]",
+            "courseName": "",
+            "courseLevel": "",
+            "courseNumber": "",
+            "studentLevel": "",
+            "fullCourseNumber": "",
+            "id": -2,
+            "type": "",
+            "required": "false",
+            "description": ""
+        },
+        'selectable': false,
+        'grabbable': false,
+        'classes': 'right'
+    }, {
+        "data": {
+            "creditHours": "",
+            "prerequisites": "[]",
+            "courseName": "",
+            "courseLevel": "",
+            "courseNumber": "",
+            "studentLevel": "",
+            "fullCourseNumber": "",
+            "id": -3,
+            "type": "",
+            "required": "false",
+            "description": ""
+        },
+        'selectable': false,
+        'grabbable': false,
+        'classes': 'left'
+    }, {
+        "data": {
+            "creditHours": "",
+            "prerequisites": "[]",
+            "courseName": "",
+            "courseLevel": "",
+            "courseNumber": "",
+            "studentLevel": "",
+            "fullCourseNumber": "",
+            "id": -4,
+            "type": "",
+            "required": "false",
+            "description": ""
+        },
+        'selectable': false,
+        'grabbable': false,
+        'classes': 'right'
+    }, {
+        "data": {
+            "creditHours": "",
+            "prerequisites": "[]",
+            "courseName": "",
+            "courseLevel": "",
+            "courseNumber": "",
+            "studentLevel": "",
+            "fullCourseNumber": "",
+            "id": -5,
+            "type": "",
+            "required": "false",
+            "description": ""
+        },
+        'selectable': false,
+        'grabbable': false,
+        'classes': 'left'
+    }, {
+        "data": {
+            "creditHours": "",
+            "prerequisites": "[]",
+            "courseName": "",
+            "courseLevel": "",
+            "courseNumber": "",
+            "studentLevel": "",
+            "fullCourseNumber": "",
+            "id": -6,
+            "type": "",
+            "required": "false",
+            "description": ""
+        },
+        'selectable': false,
+        'grabbable': false,
+        'classes': 'right'
+    }, {
+        "data": {
+            "creditHours": "",
+            "prerequisites": "[]",
+            "courseName": "",
+            "courseLevel": "",
+            "courseNumber": "",
+            "studentLevel": "",
+            "fullCourseNumber": "",
+            "id": -7,
+            "type": "",
+            "required": "false",
+            "description": ""
+        },
+        'selectable': false,
+        'grabbable': false,
+        'classes': 'left'
+    }, {
+        "data": {
+            "creditHours": "",
+            "prerequisites": "[]",
+            "courseName": "",
+            "courseLevel": "",
+            "courseNumber": "",
+            "studentLevel": "",
+            "fullCourseNumber": "",
+            "id": -8,
+            "type": "",
+            "required": "false",
+            "description": ""
+        },
+        'selectable': false,
+        'grabbable': false,
+        'classes': 'right'
+    }, {
+        "data": {
+            "creditHours": "",
+            "prerequisites": "[]",
+            "courseName": "",
+            "courseLevel": "",
+            "courseNumber": "",
+            "studentLevel": "",
+            "fullCourseNumber": "",
+            "id": -9,
+            "type": "",
+            "required": "false",
+            "description": ""
+        },
+        'selectable': false,
+        'grabbable': false,
+        'classes': 'left'
+    }, {
+        "data": {
+            "creditHours": "",
+            "prerequisites": "[]",
+            "courseName": "",
+            "courseLevel": "",
+            "courseNumber": "",
+            "studentLevel": "",
+            "fullCourseNumber": "",
+            "id": -10,
+            "type": "",
+            "required": "false",
+            "description": ""
+        },
+        'selectable': false,
+        'grabbable': false,
+        'classes': 'right'
+    }, {
+        "data": {
+            "creditHours": "",
+            "prerequisites": "[]",
+            "courseName": "",
+            "courseLevel": "",
+            "courseNumber": "",
+            "studentLevel": "",
+            "fullCourseNumber": "",
+            "id": -11,
+            "type": "",
+            "required": "false",
+            "description": ""
+        },
+        'selectable': false,
+        'grabbable': false,
+        'classes': 'left'
+    }, {
+        "data": {
+            "creditHours": "",
+            "prerequisites": "[]",
+            "courseName": "",
+            "courseLevel": "",
+            "courseNumber": "",
+            "studentLevel": "",
+            "fullCourseNumber": "",
+            "id": -12,
+            "type": "",
+            "required": "false",
+            "description": ""
+        },
+        'selectable': false,
+        'grabbable': false,
+        'classes': 'right'
+    }, {
+        "data": {
+            "creditHours": "",
+            "prerequisites": "[]",
+            "courseName": "",
+            "courseLevel": "",
+            "courseNumber": "",
+            "studentLevel": "",
+            "fullCourseNumber": "",
+            "id": -13,
+            "type": "",
+            "required": "false",
+            "description": ""
+        },
+        'selectable': false,
+        'grabbable': false,
+        'classes': 'left'
+    }, {
+        "data": {
+            "creditHours": "",
+            "prerequisites": "[]",
+            "courseName": "",
+            "courseLevel": "",
+            "courseNumber": "",
+            "studentLevel": "",
+            "fullCourseNumber": "",
+            "id": -14,
+            "type": "",
+            "required": "false",
+            "description": ""
+        },
+        'selectable': false,
+        'grabbable': false,
+        'classes': 'right'
+    }, {
+        "data": {
+            "creditHours": "",
+            "prerequisites": "[]",
+            "courseName": "",
+            "courseLevel": "",
+            "courseNumber": "",
+            "studentLevel": "",
+            "fullCourseNumber": "",
+            "id": -15,
+            "type": "",
+            "required": "false",
+            "description": ""
+        },
+        'selectable': false,
+        'grabbable': false,
+        'classes': 'left'
+    }, {
+        "data": {
+            "creditHours": "",
+            "prerequisites": "[]",
+            "courseName": "",
+            "courseLevel": "",
+            "courseNumber": "",
+            "studentLevel": "",
+            "fullCourseNumber": "",
+            "id": -16,
+            "type": "",
+            "required": "false",
+            "description": ""
+        },
+        'selectable': false,
+        'grabbable': false,
+        'classes': 'right'
+    }, {
         "data": {
             "creditHours": "3",
             "prerequisites": "[]",
@@ -163,7 +435,7 @@ function getNodes() {
             "type": "CS",
             "required": "true",
             "description": "Prerequisites: CMP SCI 2700, CMP SCI 2750, and CMP SCI 3130; or graduate standing. This course covers the structure of a generic operating system, considering in detail the algorithms for interprocess communication, process scheduling, resource management, memory management, file systems, and device management. It presents examples from contemporary operating systems and requires practical projects implemented within a modern operating system or simulator environment."
-        },
+        }
     }, {
         "data": {
             "creditHours": "3",
@@ -176,8 +448,8 @@ function getNodes() {
             "id": 12,
             "type": "MAT",
             "required": "true",
-            "description": "",
-        },
+            "description": ""
+        }
     },{
         "data": {
             "creditHours": "3",
@@ -221,12 +493,32 @@ function getNodes() {
 function getEdges(theNodes) {
     var obj = [];
 
+    for (var i = 1; i < 17; i += 2) {
+        var o =
+            {
+                "data": {
+                    source: -i,
+                    target: (-i - 1)
+                },
+                'selectable': false,
+                'grabbable': false,
+                "classes": "sem"
+            };
+        obj.push(o);
+    }
+
     for (var i in theNodes) {
         var data = theNodes[i].data;
         var req = JSON.parse(data.prerequisites);
 
         for (var i in req) {
-            var o = {"data": {source: req[i], target: data.id}};
+            var o =
+                {
+                    "data": {
+                        source: req[i],
+                        target: data.id
+                    }
+                };
             obj.push(o);
         }
     }
@@ -250,20 +542,38 @@ $(document).ready(function () {
                 'text-outline-width': 2,
                 'text-outline-color': '#888'
             })
-            .selector('.semester')
+            .selector('.left')
             .css({
-                "content": "",
+                "left": "100",
                 'text-valign': 'center',
                 'shape': 'rectangle',
+                "width": "10",
+                "height": "10",
+                "background-color": "#dddddd"
+            })
+            .selector('.right')
+            .css({
+                "left": "200",
+                'text-valign': 'center',
+                'shape': 'rectangle',
+                "width": "10",
+                "height": "10",
+                "background-color": "#dddddd"
             })
             .selector('edge')
             .css({
-                'line-color': '#bbbbbb',
-                'target-arrow-color': '#bbbbbb',
+                'line-color': '#bb9999',
+                'target-arrow-color': '#bb9999',
                 'width': 2,
                 'target-arrow-shape': 'triangle',
                 'opacity': 0.8,
-                "curve-style": "bezier"
+                "curve-style": "bezier-unbundled",
+                "z-index": 10000
+            })
+            .selector('.sem')
+            .css({
+                'line-color': "#dddddd",
+                'width': 10
             })
             .selector('.CS')
             .css({
@@ -303,15 +613,18 @@ $(document).ready(function () {
                     snap(ele);
                 }
             }
-        }else{
-
+        } else {
             ele.addClass('semester');
-            var width = cy.width();
-            var height = cy.height();
-            console.log(width);
-            $('.semester').css("width", 1261);
+            // var width = cy.width();
+            // var height = cy.height();
+            // console.log(width);
+            // $('.semester').css("width", 1261);
         }
     });
+
+    spreadOutSemesterLines();
+
+    checkIntegrity();
 
     checkOverlap();
 
@@ -417,8 +730,8 @@ function getChildren(of) {
 }
 
 function snap(ele) {
-    ele.position('x', snapWidth * Math.floor((ele.position().x + snapWidth / 2) / snapWidth));
-    ele.position('y', snapWidth * Math.floor((ele.position().y + snapWidth / 2) / snapWidth));
+    ele.position('x', snapSize * Math.floor((ele.position().x + snapSize / 2) / snapSize));
+    ele.position('y', snapSize * Math.floor((ele.position().y + snapSize / 2) / snapSize));
 }
 
 function checkOverlap() {
@@ -427,16 +740,56 @@ function checkOverlap() {
         wasAnOverlap = false;
         cy.elements().each(function (i, ele1) {
             if (ele1.group() === 'nodes') {
-                cy.elements().each(function (j, ele2) {
-                    if (j > i) {
-                        if (ele2.group() === 'nodes') {
-                            if (ele1.position().x === ele2.position().x && ele1.position().y === ele2.position().y) {
-                                wasAnOverlap = true;
-                                ele1.position('x', ele1.position().x + snapWidth);
+                if (ele1.id() >= 0) {
+                    cy.elements().each(function (j, ele2) {
+                        if (j > i) {
+                            if (ele2.group() === 'nodes') {
+                                if (ele2.id() >= 0) {
+                                    if (ele1.position().x === ele2.position().x && ele1.position().y === ele2.position().y) {
+                                        wasAnOverlap = true;
+                                        ele1.position('x', ele1.position().x + snapSize);
+                                    }
+                                }
                             }
                         }
+                    });
+                }
+            }
+        });
+    }
+}
+
+function spreadOutSemesterLines() {
+    cy.elements().each(function (i, ele) {
+        if (ele.id() < 0) {
+            if (ele.hasClass('left')) {
+                ele.position('y', ele.position().y + (((ele.id() * -1) - 1) * (snapSize / 2)) - 14);
+                ele.position('x', -50000);
+            } else {
+                ele.position('y', ele.position().y + (((ele.id() * -1) - 4) * (snapSize / 2)));
+                ele.position('x', 50000);
+            }
+        }
+    });
+}
+
+function checkIntegrity() {
+    var integrityBreach = true;
+    while (integrityBreach) {
+        integrityBreach = false;
+        cy.elements().each(function (i, ele) {
+            if (ele.group() === 'nodes') {
+                if (ele.id() >= 0) {
+                    var parentIds = getParents(ele.id());
+                    for (var index in parentIds) {
+                        if (ele.position().y ===
+                            cy.getElementById(parentIds[index]).position().y) {
+                            integrityBreach = true;
+
+                            cy.getElementById(parentIds[index]).position('y', cy.getElementById(parentIds[index]).position().y + snapSize);
+                        }
                     }
-                });
+                }
             }
         });
     }
