@@ -1,0 +1,20 @@
+.btn-success:hover {
+    color: #000;
+}
+.btn-outline {
+    background-color: transparent;
+    color: #962135;
+    transition: all .5s;
+    border-style: solid;
+    border-color: #962135;
+    margin-bottom: 4px;
+}
+
+.btn-outline:hover {
+    color: #fff;
+    background-color: #962135;
+}
+
+.fa {
+    color: #962135;
+}
