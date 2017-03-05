@@ -10,6 +10,7 @@ function getData() {
 function getNodes() {
     return [{
         "data": {
+            "creditHours": "3",
             "prerequisites": "[]",
             "courseName": "Introduction to Computing",
             "courseLevel": "1",
@@ -21,6 +22,7 @@ function getNodes() {
         }
     }, {
         "data": {
+            "creditHours": "3",
             "prerequisites": "[1]",
             "courseName": "Programming and Data Structures",
             "courseLevel": "2",
@@ -32,6 +34,7 @@ function getNodes() {
         }
     }, {
         "data": {
+            "creditHours": "3",
             "prerequisites": "[2]",
             "courseName": "Object-Oriented Programming",
             "courseLevel": "2",
@@ -43,6 +46,7 @@ function getNodes() {
         }
     }, {
         "data": {
+            "creditHours": "3",
             "prerequisites": "[2]",
             "courseName": "Computer Organization and Architecture",
             "courseLevel": "2",
@@ -54,6 +58,7 @@ function getNodes() {
         }
     }, {
         "data": {
+            "creditHours": "3",
             "prerequisites": "[4]",
             "courseName": "System Programming and Tools",
             "courseLevel": "2",
@@ -65,6 +70,7 @@ function getNodes() {
         }
     }, {
         "data": {
+            "creditHours": "3",
             "prerequisites": "[3]",
             "courseName": "Web Programming",
             "courseLevel": "3",
@@ -76,6 +82,7 @@ function getNodes() {
         }
     }, {
         "data": {
+            "creditHours": "3",
             "prerequisites": "[2]",
             "courseName": "Design and Analysis of Algorithms",
             "courseLevel": "3",
@@ -87,6 +94,7 @@ function getNodes() {
         }
     }, {
         "data": {
+            "creditHours": "3",
             "prerequisites": "[6]",
             "courseName": "Programming Languages",
             "courseLevel": "4",
@@ -98,6 +106,7 @@ function getNodes() {
         }
     }, {
         "data": {
+            "creditHours": "3",
             "prerequisites": "[5, 7, 8]",
             "courseName": "Program Translation",
             "courseLevel": "4",
@@ -109,6 +118,7 @@ function getNodes() {
         }
     }, {
         "data": {
+            "creditHours": "3",
             "prerequisites": "[5, 6, 7]",
             "courseName": "Introduction to the Software Profession",
             "courseLevel": "4",
@@ -120,6 +130,7 @@ function getNodes() {
         }
     }, {
         "data": {
+            "creditHours": "3",
             "prerequisites": "[5, 7]",
             "courseName": "Operating Systems",
             "courseLevel": "4",
@@ -131,6 +142,7 @@ function getNodes() {
         }
     }, {
         "data": {
+            "creditHours": "3",
             "prerequisites": "[]",
             "courseName": "Generic Math Course",
             "courseLevel": "1",
@@ -168,22 +180,21 @@ function getEdges(theNodes) {
     return obj;
 }
 
+var cy;
+
 $(document).ready(function () {
-    var cy = cytoscape({
+    cy = cytoscape({
         container: $('#cy'),
         elements: data,
         style: cytoscape.stylesheet()
             .selector('node')
             .css({
                 "content": "data(courseName)",
-                'background-color': '#aaaaaa',
-                // 'width': 'mapData(baz, 0, 10, 10, 40)',
-                // 'height': 'mapData(baz, 0, 10, 10, 40)'
             })
             .selector('edge')
             .css({
                 'line-color': '#bbbbbb',
-                'target-arrow-color': '#cccccc',
+                'target-arrow-color': '#bbbbbb',
                 'width': 2,
                 'target-arrow-shape': 'triangle',
                 'opacity': 0.8,
@@ -212,6 +223,41 @@ $(document).ready(function () {
     });
 
     cy.elements().each(function (i, ele) {
-        ele.addClass(ele.data().type);
+        if (ele.group() === 'nodes') {
+            ele.addClass(ele.data().type);
+        }
+    });
+
+    cy.on('tap', function (event) {
+        var evtTarget = event.cyTarget;
+
+        if (evtTarget === cy) {
+            console.log('tap on background');
+        } else {
+            console.log('tap on some element');
+            console.log(evtTarget.id());
+
+        }
+    });
+
+    cy.on('grab', function (event) {
+        var node = event.cyTarget;
+        var nodePosition = node.position();
+    });
+
+    cy.on('free', function (event) {
+        var node = event.cyTarget;
+        var nodePosition = node.position();
+
+        if (nodePosition.y < 0) {
+
+        }
     });
 });
+
+function getCoords() {
+    cy.elements().each(function (i, ele) {
+        if (i === 0)
+            console.log(ele.position());
+    });
+}
