@@ -25,7 +25,9 @@ b {
     color: #0c0c0c;
 
 }
-
+.btn{
+    padding:9px 12px;
+}
 #desc{
 
     color: #0c0c0c;
