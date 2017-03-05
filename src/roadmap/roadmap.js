@@ -313,8 +313,12 @@ $(document).ready(function () {
         parents.forEach(function (parentId) {
             var parent = cy.getElementById(parentId);
 
-            if (newPosY >= parent.position().y) {
+            console.log(parent.position().y);
+
+            console.log(node.position().y === parent.position().y);
+            if (node.position().y >= parent.position().y) {
                 console.log("Breaking requisite ladder! This node is going beyond a prerequisite! Undoing!");
+                console.log("o" + oldPosY);
                 node.position('y', oldPosY);
             } else {
             }
@@ -323,7 +327,7 @@ $(document).ready(function () {
         children.forEach(function (childId) {
             var child = cy.getElementById(childId);
 
-            if (newPosY <= child.position().y) {
+            if (node.position().y <= child.position().y) {
                 console.log("Breaking requisite ladder! This node is forcing another node beyond a prerequisite! Undoing!");
                 node.position('y', oldPosY);
             } else {
