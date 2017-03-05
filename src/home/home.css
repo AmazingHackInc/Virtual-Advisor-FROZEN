@@ -10,7 +10,9 @@
 .btn-outline {
     color: #962135;
 }
-
+.btn-group{
+    margin-left: 20px;
+}
 
 .btn-outline:hover {
     color: #fff;

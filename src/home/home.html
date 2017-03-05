@@ -335,67 +335,30 @@
         <!-- /.container-fluid -->
 
         <!--/. Dashboard Content-->
-                <div class="col-lg-12 col-md-4 col-sm-12 col-xs-12">
-                    <!--<div class="tabbable">
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tab1" style="color:brown" data-toggle="tab">Majors</a></li>
-                            <li><a href="#tab2" style="color:brown" data-toggle="tab">Certificate</a></li>
-                            <li><a href="#tab3" style="color:brown" data-toggle="tab">Minors</a></li>
-                        </ul>
-                        
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="tab1">
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div id="majors-donut-chart"></div>
-                                    <a href="#" class="btn btn-default btn-block">View details</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane" id="tab2">
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div id="cert-donut-chart"></div>
-                                    <a href="#" class="btn btn-default btn-block">View details</a>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-
-                        <div class="tab-pane" id="tab3">
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div id="minors-donut-chart"></div>
-                                    <a href="#" class="btn btn-default btn-block">View details</a>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>-->
-
-                    
-
+                <div class="col-lg-12 col-md-4 col-sm-12 col-xs-12">            
                     <div class="panel panel-default">
                         <div class="panel-red">
                             <div class="panel-heading"><b>Progress</b></div>
+
                         <!--/.Majors Button-->
-                        <button type="button" class="btn btn-outline"  data-toggle="collapse" data-target="#majors-donut-chart">Majors</button>                              
-                                        <div id="majors-donut-chart" class="collapse"></div>                                    
-                                        <!--<a href="#" class="btn btn-default btn-block">View details</a>-->
+                        <div class="row" >
+                            <div class="btn-group">
+                            <button type="button" class="btn btn-outline"  data-toggle="collapse" data-target="#majors-donut-chart">Majors</button>                              
+                                                                                                                         
 
+                            <!--/.Certificate Button-->
+                            <button type="button" class="btn btn-outline" data-toggle="collapse" data-target="#cert-donut-chart">Certificate</button>
+                                            
 
-
-                        <!--/.Certificate Button-->
-                        <button type="button" class="btn btn-outline" data-toggle="collapse" data-target="#cert-donut-chart">Certificate</button>
-                                        <div id="cert-donut-chart" class="collapse"></div>
-
-
-                        <!--/.Minors Button-->
-                        <button type="button" class="btn btn-outline"  data-toggle="collapse" data-target="#minors-donut-chart">Minors</button>
+                            <!--/.Minors Button-->
+                            <button type="button" class="btn btn-outline"  data-toggle="collapse" data-target="#minors-donut-chart">Minors</button>
+                              </div>              
+                        </div>
+                        <div id="majors-donut-chart" class="collapse"></div>  
+                        <div id="cert-donut-chart" class="collapse"></div>
                         <div id="minors-donut-chart" class="collapse"></div>
                         </div>
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>

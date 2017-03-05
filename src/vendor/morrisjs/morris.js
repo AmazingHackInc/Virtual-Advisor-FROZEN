@@ -2140,7 +2140,7 @@ var c1=Morris.Donut({
   ],
     formatter: function(y){
     return y + " credits"
-  }
+  },
 
 });
 // if($('#morris-donut-chart').length >0){
@@ -2165,7 +2165,7 @@ var c2=Morris.Donut({
 
     formatter: function(y){
     return y + " credits"
-  }
+  },
 
 });
 
@@ -2190,7 +2190,7 @@ var c3=Morris.Donut({
   ],
   formatter: function(y){
     return y + " credits"
-  }
+  },
 
 });
 
