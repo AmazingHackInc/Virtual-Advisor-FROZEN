@@ -20,6 +20,19 @@ h1 {
     font-size: 1em;
 }
 
+b {
+
+    color: #0c0c0c;
+
+}
+
+#desc{
+
+    color: #0c0c0c;
+    text-align: left;
+
+}
+
 #page-wrapper {
     padding: 0 !important;
 }
