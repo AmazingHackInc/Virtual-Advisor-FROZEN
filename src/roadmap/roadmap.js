@@ -213,6 +213,10 @@ $(document).ready(function () {
             .selector('node')
             .css({
                 "content": "data(fullCourseNumber)",
+                'text-valign': 'center',
+                'color': 'white',
+                'text-outline-width': 2,
+                'text-outline-color': '#888'
             })
             .selector('edge')
             .css({
@@ -225,7 +229,7 @@ $(document).ready(function () {
             })
             .selector('.CS')
             .css({
-                'background-color': 'green'
+                'background-color': '#962135'
             })
             .selector('.MAT')
             .css({
