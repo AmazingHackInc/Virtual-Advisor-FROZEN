@@ -1891,11 +1891,45 @@ Licensed under the BSD-2-Clause License.
 
 }).call(this);
 
-Morris.Donut({
-  element: 'morris-donut-chart',
+var c1 = Morris.Donut({
+  element: 'majors-donut-chart',
   data: [
-    {label: "Download Sales", value: 12},
-    {label: "In-Store Sales", value: 30},
-    {label: "Mail-Order Sales", value: 20}
+    {label: "Completed", value: 87},
+    {label: "In Progress", value: 12},
+    {label: "Incompleted", value: 21}
+  ],
+  colors:[
+    '#962135',
+    '#ad7c89',
+    '#8e8181'
+  ]
+});
+$('ul.nav a').on('shown.bs.tab', function (e) {
+    c1.redraw();
+});
+Morris.Donut({
+  element: 'cert-donut-chart',
+  data: [
+    {label: "Completed", value: 0},
+    {label: "In Progress", value: 3},
+    {label: "Incompleted", value: 3}
+  ],
+  colors:[
+    '#962135',
+    '#ad7c89',
+    '#8e8181'
+  ]
+});
+Morris.Donut({
+  element: 'minors-donut-chart',
+  data: [
+    {label: "Completed", value: 3},
+    {label: "In Progress", value: 3},
+    {label: "Incompleted", value: 6}
+  ],
+  colors:[
+    '#962135',
+    '#ad7c89',
+    '#8e8181'
   ]
 });
