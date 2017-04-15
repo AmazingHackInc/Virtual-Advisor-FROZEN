@@ -2223,8 +2223,8 @@ var c4=Morris.Bar({
         xkey: 'y',
         ykeys: ['a'],
         labels: ['GPA: '],
-        hideHover: "auto",
         axes: false,
+        hideHover: "auto",
         horizontal: true,
         resize: true
     });
