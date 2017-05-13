@@ -19,8 +19,11 @@
 .panel.panel-default.panel-heading {
     background-color: #962135;
 }
-.fun-facts{
+.smart-advise{
     padding-top: 20px;
+}
+.smart-advise-heading {
+    text-align: center;
 }
 
 .fa {
