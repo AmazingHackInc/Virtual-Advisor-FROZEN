@@ -468,11 +468,11 @@ function getNodes() {
         "data": {
             "creditHours": "3",
             "prerequisites": "[13]",
-            "courseName": "Art 1001 Fun with Finger Paint",
+            "courseName": "Art 1002 Play Doh Sculptures",
             "courseLevel": "1",
-            "courseNumber": "1001",
+            "courseNumber": "1002",
             "studentLevel": "Freshmen",
-            "fullCourseNumber": "ART 1001",
+            "fullCourseNumber": "ART 1002",
             "id": 14,
             "type": "ART",
             "required": "false",
@@ -651,7 +651,7 @@ $(document).ready(function () {
     checkOverlap();
 
     cy.zoom({
-        level: 1.8
+        level: 1.4
     });
 
     cy.pan({
